@@ -32,6 +32,10 @@ UserSchema.methods.generateToken = function(){
   this.token = nanoid();
 };
 
+UserSchema.methods.comparePasswords = function(inputData){
+  return bcrypt.compare(inputData, this.password);
+};
+
 UserSchema.pre('save', async function(next){
   if(!this.isModified('password')) return next();
 
