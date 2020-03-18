@@ -5,7 +5,7 @@ const auth = async (req, res, next) => {
 
   const [type, token] = authorizationHeader.split(' ');
 
-  if(type === 'Token' || !token) return res.status(401).send({error: 'No token or invalid token'});
+  if(type !== 'Token' || !token) return res.status(401).send({error: 'No token or invalid token'});
 
   const user = await User.findOne({token});
 

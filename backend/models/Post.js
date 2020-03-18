@@ -7,11 +7,15 @@ const PostSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    required: !this.image,
+    required: function(){
+      return !this.image;
+    },
   },
   image: {
     type: String,
-    required: !this.description,
+    required: function(){
+      return !this.description;
+    },
   },
   user: {
     type: mongoose.Schema.Types.ObjectID,
