@@ -51,4 +51,14 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/:postId', async (req, res) => {
+  try{
+    const post = await Post.findOne({_id: req.params.postId});
+
+    res.send(post);
+  }catch(error){
+    res.status(400).send(error);
+  }
+});
+
 module.exports = router;

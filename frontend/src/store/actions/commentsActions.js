@@ -10,6 +10,7 @@ export const fetchComments = postId => {
   return async dispatch => {
     try{
       const response = await axiosOrders.get('/comments/' + postId);
+      response.data.reverse();
 
       dispatch(fetchCommentsSuccess(response.data));
     }catch(error){
