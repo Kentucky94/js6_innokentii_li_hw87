@@ -9,10 +9,10 @@ const Header = () => {
         <NavbarBrand tag={RouterNavLink} to="/" className='mr-auto'>Forum App</NavbarBrand>
         <Nav className="ml-auto" navbar>
           <NavItem>
-            <NavLink tag={RouterNavLink} to="/">Components</NavLink>
+            <NavLink tag={RouterNavLink} to="/register">Register</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink tag={RouterNavLink} to="/">GitHub</NavLink>
+            <NavLink tag={RouterNavLink} to="/login">Login</NavLink>
           </NavItem>
         </Nav>
       </Navbar>

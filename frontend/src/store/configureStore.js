@@ -5,6 +5,7 @@ import {createBrowserHistory} from "history";
 
 import postsReducer from "./reducers/postsReducer";
 import commentsReducer from "./reducers/commentsReducer";
+import usersReducer from "./reducers/usersReducer";
 
 export const history = createBrowserHistory();
 
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   router: connectRouter(history),
   posts: postsReducer,
   comments: commentsReducer,
+  users: usersReducer,
 });
 
 const middleware = [
