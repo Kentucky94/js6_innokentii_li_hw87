@@ -28,7 +28,7 @@ router.post('/', [auth, upload.single('image')], async (req, res) => {
     if(req.file){
       postData.image = req.file.filename;
     }else{
-      postData.image = '';
+      postData.image = 'noimage.jpg';
     }
     postData.user = user._id;
 
@@ -38,6 +38,16 @@ router.post('/', [auth, upload.single('image')], async (req, res) => {
     res.send(post);
   }catch(error){
      return res.status(400).send(error);
+  }
+});
+
+router.get('/', async (req, res) => {
+  try{
+    const posts = await Post.find().populate('user');
+
+    res.send(posts);
+  }catch(e){
+    return res.send(error);
   }
 });
 

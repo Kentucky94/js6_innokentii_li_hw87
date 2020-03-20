@@ -34,7 +34,7 @@ router.post('/sessions', async(req, res) => {
     await user.save();
 
     return res.send(user);
-  }catch{
+  }catch(error){
     return res.status(400).send(error);
   }
 });
