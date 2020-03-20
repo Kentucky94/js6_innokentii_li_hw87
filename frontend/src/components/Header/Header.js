@@ -1,10 +1,12 @@
 import React from 'react';
 import {NavLink as RouterNavLink} from 'react-router-dom';
 import {Nav, Navbar, NavbarBrand, NavbarText, NavItem, NavLink} from "reactstrap";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {logoutUser} from "../../store/actions/usersActions";
 
 const Header = () => {
   const user = useSelector(state => state.users.user);
+  const dispatch = useDispatch();
 
   return (
     <div className="Header">
@@ -23,6 +25,9 @@ const Header = () => {
           <NavItem>
             <NavLink tag={RouterNavLink} to="/posts/add">Add Post</NavLink>
           </NavItem>
+          <NavbarText onClick={() => dispatch(logoutUser())}>
+            Logout
+          </NavbarText>
         </Nav>
       </Navbar>
     </div>

@@ -6,6 +6,7 @@ import {createBrowserHistory} from "history";
 import postsReducer from "./reducers/postsReducer";
 import commentsReducer from "./reducers/commentsReducer";
 import usersReducer from "./reducers/usersReducer";
+import {loadFromLocalStorage, localStorageMiddleware} from "./localStorage";
 
 export const history = createBrowserHistory();
 
@@ -20,11 +21,14 @@ const rootReducer = combineReducers({
 
 const middleware = [
   thunkMiddleware,
-  routerMiddleware(history)
+  routerMiddleware(history),
+  localStorageMiddleware
 ];
 
 const enhancers = composeEnhancers(applyMiddleware(...middleware));
 
-const store  = createStore(rootReducer, enhancers);
+const persistedState = loadFromLocalStorage();
+
+const store = createStore(rootReducer, persistedState, enhancers);
 
 export default store;
