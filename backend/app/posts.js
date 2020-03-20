@@ -43,7 +43,7 @@ router.post('/', [auth, upload.single('image')], async (req, res) => {
 
 router.get('/', async (req, res) => {
   try{
-    const posts = await Post.find().populate('user');
+    const posts = await Post.find().populate({path: 'user', select: 'username'});
 
     res.send(posts);
   }catch(e){

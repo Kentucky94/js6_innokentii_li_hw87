@@ -24,7 +24,7 @@ router.post('/', auth, async (req, res) => {
 
 router.get('/:postId', async (req, res) => {
   try{
-    const comments = await Comment.find({post: req.params.postId}).populate('user');
+    const comments = await Comment.find({post: req.params.postId}).populate({path: 'user', select: 'username'});
 
     res.send(comments);
   }catch(error){

@@ -1,0 +1,11 @@
+.PostBlock{
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.PostBlock img{
+  height: 200px;
+  width: 300px;
+}
