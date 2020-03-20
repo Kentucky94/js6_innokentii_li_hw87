@@ -7,6 +7,7 @@ import PostsMainPage from "./containers/PostsMainPage/PostsMainPage";
 import FullPostPage from "./containers/FullPostPage/FullPostPage";
 import Register from "./containers/Register/Register";
 import Login from "./containers/Login/Login";
+import AddPostPage from "./containers/AddPostPage/AddPostPage";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path='/' exact component={PostsMainPage}/>
           <Route path='/register' exact component={Register}/>
           <Route path='/login' exact component={Login}/>
+          <Route path='/posts/add' exact component={AddPostPage} />
           <Route path='/posts/:id' exact component={FullPostPage} />
         </Switch>
       </div>
