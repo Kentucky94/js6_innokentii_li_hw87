@@ -1,6 +1,6 @@
 import React from 'react';
 import {NavLink as RouterNavLink} from 'react-router-dom';
-import {Nav, Navbar, NavbarBrand, NavbarText, NavItem, NavLink} from "reactstrap";
+import {Nav, Navbar, NavbarBrand} from "reactstrap";
 import {useDispatch, useSelector} from "react-redux";
 import {logoutUser} from "../../store/actions/usersActions";
 import UserNav from "../UI/UserNav";
