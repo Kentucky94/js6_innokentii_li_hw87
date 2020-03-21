@@ -3,6 +3,8 @@
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .PostBlock img{

@@ -13,7 +13,7 @@ export const registerUserFailure = error => ({type: REGISTER_USER_SUCCESS, error
 export const loginUserSuccess = user => ({type: LOGIN_USER_SUCCESS, user});
 export const loginUserFailure = error => ({type: LOGIN_USER_SUCCESS, error});
 export const logoutUserSuccess = () => ({type: LOGOUT_USER_SUCCESS});
-export const logoutUserFailure = error => ({type: LOGOUT_USER_SUCCESS, error});
+export const logoutUserFailure = error => ({type: LOGOUT_USER_FAILURE, error});
 
 export const registerUser = userData => {
   return async dispatch => {
@@ -50,7 +50,7 @@ export const logoutUser = () => {
 
       dispatch(logoutUserSuccess());
     }catch(error){
-      dispatch(loginUserFailure(error))
+      dispatch(logoutUserFailure(error))
     }
   }
 };
